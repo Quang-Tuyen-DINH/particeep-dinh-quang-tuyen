@@ -1,0 +1,6 @@
+// MOVIES
+export const SET_MOVIE = 'SET_MOVIE';
+export const DELETE_A_MOVIE = 'DELETE_A_MOVIE';
+
+// CATEGORIES
+export const SET_CATEGORIES = 'SET_CATEGORIES';
