@@ -1,0 +1,10 @@
+.movieContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+#filterIndicator {
+  color: #fff;
+  margin: 1em 0;
+  text-align: center;
+}

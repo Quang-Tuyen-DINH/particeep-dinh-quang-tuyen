@@ -1,0 +1,161 @@
+/*Downloaded from https://www.codeseek.co/simoberny/responsive-movie-card-dark-version-qxxOqj */
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,700,800");
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html,
+body {
+  margin: 0;
+  background: black;
+  font-family: "Montserrat", helvetica, arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.movie_card {
+  position: relative;
+  display: block;
+  width: 300px;
+  height: 350px;
+  margin: 100px 60px;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: all 0.4s;
+  background: url("https://upload.wikimedia.org/wikipedia/en/3/31/John_Wick_Chapter_Two.png");
+  background-size: auto 145%;
+  background-repeat: no-repeat;
+}
+.movie_card:hover {
+  -webkit-transform: scale(1.02);
+  transform: scale(1.02);
+  transition: all 0.4s;
+}
+.movie_card .info_section {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-blend-mode: multiply;
+  z-index: 2;
+  border-radius: 10px;
+}
+.movie_card .info_section .movie_header {
+  position: relative;
+  display: block;
+  padding: 110px 25px 25px 25px;
+  height: 170px;
+}
+.movie_card .info_section .movie_header h1 {
+  color: #fff;
+}
+.movie_card .info_section .movie_header h4 {
+  color: #9ac7fa;
+  font-weight: 400;
+}
+.movie_card .info_section .movie_desc {
+  display: block;
+  margin: 30px 0 0 0;
+  padding: 25px;
+  height: 50%;
+  bottom: 0;
+}
+
+#all {
+  width: 200px;
+  margin: 0 0 15px 0;
+}
+
+#likes {
+  height: 6px;
+  width: 50%;
+  background: #02990f;
+  float: left;
+}
+#dislikes {
+  height: 6px;
+  width: 50%;
+  background: rgb(163, 16, 16);
+  float: right;
+}
+
+#bar {
+  margin: 5px 0 0 0;
+  width: 40%;
+}
+#likeButton {
+  transition-duration: 0.4s;
+  background-color: transparent;
+  border: transparent;
+  color: #ffffff;
+  width: 40px;
+  font-size: 15px;
+}
+#likeButton:hover {
+  color: #02990f;
+  cursor: pointer;
+}
+#dislikeButton {
+  transition-duration: 0.4s;
+  background-color: transparent;
+  border: transparent;
+  color: #ffffff;
+  width: 40px;
+  font-size: 15px;
+}
+#dislikeButton:hover {
+  color: rgb(163, 16, 16);
+  cursor: pointer;
+}
+#deleteButton {
+  transition-duration: 0.4s;
+  height: 30px;
+  background-color: transparent;
+  color: rgb(163, 16, 16);
+  border: 3px solid rgb(163, 16, 16);
+  border-radius: 5px;
+}
+#deleteButton:hover {
+  background-color: rgb(163, 16, 16);
+  color: #ffffff;
+}
+.movie_card .info_section .movie_desc ul {
+  list-style: none;
+  padding: 10px 0 0 0;
+}
+.movie_card .info_section .movie_desc ul li {
+  display: inline-block;
+  color: rgba(255, 255, 255, 0.4);
+  transition: color 0.3s;
+  transition-delay: 0.15s;
+  margin: 0 10px 10px 0;
+}
+.movie_card .info_section .movie_desc ul li button {
+  width: 80px;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .movie_desc {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .movie_card {
+    width: 200 pixel;
+    margin: 70px auto;
+    min-height: 350px;
+    height: auto;
+  }
+
+  .movie_desc {
+    width: 100%;
+  }
+}
+#bright {
+  box-shadow: 0px 0px 150px -45px rgba(255, 51, 0, 0.5);
+}
+#bright:hover {
+  box-shadow: 0px 0px 120px -55px rgba(255, 51, 0, 0.5);
+}

@@ -1,27 +1,50 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { setSelectedCategory } from "../../store/actions";
+import "./index.css";
 
-class MoviesFilter extends Component {
+class MovieFilter extends Component {
+  handleChange = (event) => {
+    this.props.filterByCategory(event.target.value);
+  };
+
   render() {
+    let categories = this.props.categories;
+    const removeDuplicates = (array) => {
+      let newArray = new Array();
+      for (let a = array.length - 1; a >= 0; a--) {
+        for (let b = array.length - 1; b >= 0; b--) {
+          if (array[a] === array[b] && a !== b) {
+            delete array[b];
+          }
+        }
+        if (array[a] !== undefined) newArray.push(array[a]);
+      }
+      return newArray;
+    };
+    const sortedCategories = removeDuplicates(categories);
+
     return (
-      <div>
-          <select>
-            <option value="0">Select car:</option>
-            <option value="1">Audi</option>
-            <option value="2">BMW</option>
-            <option value="3">Citroen</option>
-            <option value="4">Ford</option>
-            <option value="5">Honda</option>
-            <option value="6">Jaguar</option>
-            <option value="7">Land Rover</option>
-            <option value="8">Mercedes</option>
-            <option value="9">Mini</option>
-            <option value="10">Nissan</option>
-            <option value="11">Toyota</option>
-            <option value="12">Volvo</option>
-          </select>
+      <div id="filterList">
+        <select onChange={this.handleChange} defaultValue="">
+          <option value="">Select category:</option>
+          {sortedCategories.map((category, index) => (
+            <option key={index} value={category}>
+              {category}
+            </option>
+          ))}
+        </select>
       </div>
     );
   }
 }
 
-export default MoviesFilter;
+const mapStateToProps = (state) => ({
+  categories: state.movies.map((movie) => movie.category)
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  filterByCategory: (category) => dispatch(setSelectedCategory(category))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(MovieFilter);
